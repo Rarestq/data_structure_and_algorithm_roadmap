@@ -41,6 +41,9 @@ package com.rarestzhou.leetcode_solutions.array;
  * //
  * // Related Topics 数组 双指针
  *
+ *
+ * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+ *
  * @author: wuxiu
  * @date: 2019/11/27 21:58
  */
