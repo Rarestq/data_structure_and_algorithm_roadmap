@@ -119,4 +119,4 @@ public class RotateArraySolution {
 ```
 
 LeetCode 提交结果：
-![RotateArray2.png](https://i.loli.net/2019/11/28/ZBF5leVxh3JauXS.png)
+![RotateArray2.png](https://i.loli.net/2019/11/28/ThSvqDW6U2N1pLM.png)
