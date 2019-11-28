@@ -36,6 +36,10 @@ public class RotateArraySolution {
 
     /**
      * 解法二：
+     *  0、获取要移动的元素个数（数组尾部） k % n
+     *  1、reverse 整个数组元素
+     *  2、reverse 前 k % n 个元素
+     *  3、reverse 后 n - (k % n) 个元素
      *
      * @param nums
      * @param k
@@ -45,18 +49,33 @@ public class RotateArraySolution {
             return;
         }
 
+        // 获取要移动的元素个数（数组尾部）
+        k %= nums.length;
+        // reverse 整个数组元素
+        reverse(nums, 0, nums.length - 1);
+        // reverse 前 k % n 个元素
+        reverse(nums, 0, k - 1);
+        // reverse 后 n - (k % n) 个元素
+        reverse(nums, k, nums.length - 1);
     }
 
     /**
-     * 解法三：
+     * 反转数组元素
      *
-     * @param nums
-     * @param k
+     * @param nums   要反转的数组
+     * @param start  要反转的开始下标
+     * @param end    要反转的结束下标
      */
-    public void rotat3(int[] nums, int k) {
-        if (nums.length < 2 || k == 0) {
-            return;
+    public void reverse(int[] nums, int start, int end) {
+        // 循环结束条件：start >= end
+        while (start < end) {
+            // 交换元素
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            // 开始和结束下标位置更新
+            start++;
+            end--;
         }
-
     }
 }

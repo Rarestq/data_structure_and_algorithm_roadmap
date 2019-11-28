@@ -11,7 +11,7 @@
 通过分析可以得到该种解法的时间和空间复杂度为：
 
 - 时间复杂度：O(n^k),取决于移动的位置数，每移动一次时间复杂度都需要乘以 n
-- 空间复杂度：O(1)，没有用到多余的空间存储元素
+- 空间复杂度：O(1)，不需要额外空间
 
 代码如下：
 
@@ -43,17 +43,80 @@ public class RotateArraySolution {
     }
 }
 ```
+LeetCode 提交结果：
+![RotateArray1.png](https://i.loli.net/2019/11/28/sYT7bF6rAKnwdIp.png)
+
+可以看到该种解法的性能相对来说是比较差的，这就引出了第二种解法。
 
 ### 解题思路 2
 ---
+基于第一种解法时间性能比较差的情况下，很自然的就想到减少循环的次数，也就需要避免遍历整个数组，这时想到，无论移动多少次，固定的 k%n 个数是需要移动到数组前面的，为了减少循环次数，先 reverse 整个数组，这样 k%n 个数就相当于移动到了数组前面，于是，只需要分别对前 k%n 个数和后 n-(k%n)个数进行 reverse 就行了。
 
+具体思路如下：
+
+- 获取要移动的元素个数(数组尾部) k % n
+- reverse 整个数组元素
+- reverse 前 k % n 个元素
+- reverse 后 n - (k % n) 个元素
+
+这样就能完成数组的旋转效果了。
 
 通过分析可以得到该种解法的时间和空间复杂度为：
 
-- 时间复杂度：O(n*k),取决于移动的位置数，即 T(n) = O(n) * O(k)
-- 空间复杂度：O(1)，没有用到多余的空间存储元素
+- 时间复杂度：O(n)
+- 空间复杂度：O(1)，不需要额外空间
 
 代码如下：
 ```java
+public class RotateArraySolution {
+
+    /**
+     * 解法二：
+     *  0、获取要移动的元素个数（数组尾部） k % n
+     *  1、reverse 整个数组元素
+     *  2、reverse 前 k % n 个元素
+     *  3、reverse 后 n - (k % n) 个元素
+     *
+     * @param nums
+     * @param k
+     */
+    public void rotate2(int[] nums, int k) {
+        if (nums.length < 2 || k == 0) {
+            return;
+        }
+
+        // 获取要移动的元素个数（数组尾部）
+        k %= nums.length;
+        // reverse 整个数组元素
+        reverse(nums, 0, nums.length - 1);
+        // reverse 前 k % n 个元素
+        reverse(nums, 0, k - 1);
+        // reverse 后 n - (k % n) 个元素
+        reverse(nums, k, nums.length - 1);
+    }
+
+    /**
+     * 反转数组元素
+     *
+     * @param nums   要反转的数组
+     * @param start  要反转的开始下标
+     * @param end    要反转的结束下标
+     */
+    public void reverse(int[] nums, int start, int end) {
+        // 循环结束条件：start >= end
+        while (start < end) {
+            // 交换元素
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            // 开始和结束下标位置更新
+            start++;
+            end--;
+        }
+    }
+}
 
 ```
+
+LeetCode 提交结果：
+![RotateArray2.png](https://i.loli.net/2019/11/28/ZBF5leVxh3JauXS.png)
