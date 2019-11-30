@@ -102,6 +102,4 @@ public class MergeTwoListsSolution {
     }
 }
 ```
-LeetCode 提交结果：
-![MergeTwoSortedLists1.png](https://i.loli.net/2019/11/29/Nog64L3DKPSVure.png)
 
