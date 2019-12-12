@@ -1,4 +1,4 @@
-package com.rarestzhou.leetcode_solutions.array;
+package com.rarestzhou.leetcode_solutions.java.array;
 
 /**
  * 189. 旋转数组

@@ -1,4 +1,4 @@
-package com.rarestzhou.leetcode_solutions.queue;
+package com.rarestzhou.leetcode_solutions.java.queue;
 
 /**
  * 641. 设计循环双端队列

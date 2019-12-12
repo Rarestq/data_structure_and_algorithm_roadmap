@@ -1,4 +1,4 @@
-package com.rarestzhou.leetcode_solutions.array;
+package com.rarestzhou.leetcode_solutions.java.array;
 
 /**
  * 26.删除排序数组中的重复项

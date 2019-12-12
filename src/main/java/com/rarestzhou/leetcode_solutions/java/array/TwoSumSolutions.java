@@ -1,4 +1,7 @@
-package com.rarestzhou.leetcode_solutions.array;
+package com.rarestzhou.leetcode_solutions.java.array;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 1. 两数之和

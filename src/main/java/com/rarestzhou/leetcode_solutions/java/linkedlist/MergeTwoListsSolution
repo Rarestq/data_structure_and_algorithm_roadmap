@@ -1,4 +1,4 @@
-package com.rarestzhou.leetcode_solutions.linkedlist;
+package com.rarestzhou.leetcode_solutions.java.linkedlist;
 
 /**
  * 21. 合并两个有序链表
@@ -72,5 +72,13 @@ public class MergeTwoListsSolution {
         prev.next = l1 == null ? l2 : l1;
 
         return preHead.next;
+    }
+
+    class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }
