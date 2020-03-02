@@ -1,5 +1,6 @@
 package com.rarestzhou.leetcode_solutions.java.array;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +24,21 @@ public class ThreeSumSolutions {
      * @return
      */
     public List<List<Integer>> threeSum(int[] nums) {
-        return Collections.singletonList(Collections.emptyList());
+        List<List<Integer>> result = new ArrayList<>();
+        // 第一层循环遍历 nums 中的每一个元素
+        for (int i = 0; i < nums.length - 2; i++) {
+            // 第二层循环遍历 nums 中的其他元素
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                // 第三层循环遍历剩下的元素
+                for (int k = j + 1; k < nums.length; k++) {
+                    // 看是不是有满足条件的
+                    if (nums[k] + nums[j] + nums[i] == 0) {
+
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     /**
@@ -49,5 +64,4 @@ public class ThreeSumSolutions {
     public List<List<Integer>> threeSum3(int[] nums) {
         return Collections.singletonList(Collections.emptyList());
     }
-
 }

@@ -30,25 +30,30 @@ public class ValidPalindromeSolutions {
         return s.equalsIgnoreCase(reversedStr);
     }
 
+    /**
+     * 方法二：双指针法
+     *
+     * @param s
+     * @return
+     */
     public boolean isPalindrome2(String s) {
         if (s.isEmpty()) {
             return true;
         }
-        int head = 0, tail = s.length() - 1;
-        char cHead, cTail;
-        while(head <= tail) {
-            cHead = s.charAt(head);
-            cTail = s.charAt(tail);
-            if (!Character.isLetterOrDigit(cHead)) {
-                head++;
-            } else if(!Character.isLetterOrDigit(cTail)) {
-                tail--;
+        int left = 0, right = s.length() - 1;
+        // 也可以使用 cHead = s.charAt(left)的方式
+        char[] chars = s.toCharArray();
+        while(left <= right) {
+            if (!Character.isLetterOrDigit(chars[left])) {
+                left++;
+            } else if(!Character.isLetterOrDigit(chars[right])) {
+                right--;
             } else {
-                if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
+                if (Character.toLowerCase(chars[left]) != Character.toLowerCase(chars[right])) {
                     return false;
                 }
-                head++;
-                tail--;
+                left++;
+                right--;
             }
         }
 
