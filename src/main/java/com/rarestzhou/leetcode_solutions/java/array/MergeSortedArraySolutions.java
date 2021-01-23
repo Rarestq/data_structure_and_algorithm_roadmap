@@ -1,4 +1,4 @@
-package com.rarestzhou.leetcode_solutions.java.java.array;
+package com.rarestzhou.leetcode_solutions.java.array;
 
 /**
  * 88. Merge Sorted Array

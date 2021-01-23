@@ -24,6 +24,11 @@ public class TwoSumSolutions {
      * @return
      */
     public int[] twoSum(int[] nums, int target) {
+        // 参数校验
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+
         // 暴力破解法：两层 for 循环
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
@@ -33,7 +38,8 @@ public class TwoSumSolutions {
                 }
             }
         }
-        throw new IllegalArgumentException("Oops,no two nums solution");
+        // 找不到解为正常业务逻辑，返回空数组即可
+        return new int[]{};
     }
 
     /**
@@ -47,6 +53,11 @@ public class TwoSumSolutions {
      * @return
      */
     public int[] twoSum2(int[] nums, int target) {
+        // 参数校验
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+
         // 数组中的值为key，下标index为value
         Map<Integer, Integer> ansMap = new HashMap<>();
 
@@ -59,6 +70,6 @@ public class TwoSumSolutions {
             }
             ansMap.put(nums[i], i);
         }
-        throw new IllegalArgumentException("Oops,no two nums solution");
+        return new int[]{};
     }
 }

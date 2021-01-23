@@ -1,7 +1,5 @@
 package com.rarestzhou.leetcode_solutions.java.binary_search;
 
-import java.util.Arrays;
-
 /**
  * All rights Reserved, Designed By www.maihaoche.com
  * <p>
