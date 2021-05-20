@@ -1,6 +1,6 @@
 package com.rarestzhou.leetcode_solutions.java.tree;
 
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * All rights Reserved, Designed By www.maihaoche.com
@@ -39,6 +39,52 @@ public class TraversingTreeSolutions {
     }
 
     /**
+     * 迭代法
+     *
+     * @param root
+     */
+    private void preOrderIteratively(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(root.value);
+        while (!stack.isEmpty()) {
+            Integer nodeVal = stack.pop();
+            System.out.println(nodeVal);
+            // 栈是先进后出，所以右子树先入栈
+            if (root.right != null) {
+                stack.push(root.right.value);
+            }
+            // 然后左子树再入栈
+            if (root.left != null) {
+                stack.push(root.left.value);
+            }
+        }
+    }
+
+    private List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (root == null) {
+            return res;
+        }
+
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        TreeNode node = root;
+        while (!stack.isEmpty() || node != null) {
+            while (node != null) {
+                res.add(node.value);
+                stack.push(node);
+                // 队列是先进先出，所以左子树先入队
+                node = node.left;
+            }
+            node = stack.pop();
+            node = node.right;
+        }
+        return res;
+    }
+
+    /**
      * 中序遍历
      * 时间复杂度：O(N)
      *
@@ -51,6 +97,21 @@ public class TraversingTreeSolutions {
         inOrder(root.left);
         System.out.println(root.value);
         inOrder(root.right);
+    }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        Deque<TreeNode> stk = new LinkedList<TreeNode>();
+        while (root != null || !stk.isEmpty()) {
+            while (root != null) {
+                stk.push(root);
+                root = root.left;
+            }
+            root = stk.pop();
+            res.add(root.value);
+            root = root.right;
+        }
+        return res;
     }
 
     /**
@@ -66,6 +127,30 @@ public class TraversingTreeSolutions {
         postOrder(root.left);
         postOrder(root.right);
         System.out.println(root.value);
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> vals = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode node = root;
+        TreeNode prev = null;
+        while (!stack.isEmpty() || node != null) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            // TODO by 无朽 2021/3/15 ？？
+            if (node.right == null || node.right == prev) {
+                vals.add(node.value);
+                prev = node;
+                node = null;
+            } else {
+                stack.push(root);
+                node =  node.right;
+            }
+        }
+        return vals;
     }
 
     /**

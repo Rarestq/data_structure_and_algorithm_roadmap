@@ -71,15 +71,6 @@ public class SearchRangeSolutions {
         return result;
     }
 
-    public static int[] searchRangeV2(int[] nums, int target) {
-        int[] result = {-1, -1};
-        if (nums.length == 0) {
-            return result;
-        }
-
-        return result;
-    }
-
     public static void main(String[] args) {
         // 示例 1：nums = [5,7,7,8,8,10], target = 8 --> 输出：[3,4]
         int[] nums1 = {5, 7, 7, 8, 8, 10};

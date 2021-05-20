@@ -70,7 +70,7 @@ LeetCode 提交结果：
 public class MergeTwoListsSolution {
 
     /**
-     * 解法二：递归
+     * 解法二：迭代
      * 时间复杂度:O(m+n)
      * 空间复杂度:O(1)
      *

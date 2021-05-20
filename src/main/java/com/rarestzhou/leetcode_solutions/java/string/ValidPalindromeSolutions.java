@@ -59,4 +59,10 @@ public class ValidPalindromeSolutions {
 
         return true;
     }
+
+    public boolean isPalindromeV3(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        return false;
+    }
 }
