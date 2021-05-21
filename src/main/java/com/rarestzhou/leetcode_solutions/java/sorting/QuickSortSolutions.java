@@ -72,7 +72,10 @@ public class QuickSortSolutions {
 //        quickPartitionSort(arr, pivot + 1, right);
 
         // 快排优化一：单边递归优化
-        singleSideQuickPartitionSort(arr, left, right);
+//        singleSideQuickPartitionSort(arr, left, right);
+
+        // 快排优化二：基准值选取优化（三点取中法）
+        selectPivotOptimizeQuickSort(arr, left, right);
     }
 
     /**
@@ -108,8 +111,54 @@ public class QuickSortSolutions {
      * @param left
      * @param right
      */
-    public static void selectPivot(int[] arr, int left, int right) {
+    public static void selectPivotOptimizeQuickSort(int[] arr, int left, int right) {
+        // arr = 6, 11, 3, 12, 7, 7, 9, 8
+        while (left < right) {
+            int x = left;
+            int y = right;
+            // 三点取中
+            int midVal = findMidValue(arr[0], arr[right], arr[left + ((right - left) >> 1)]);
+            do {
+                while (arr[x] < midVal) {
+                    ++x;
+                }
+                while (arr[y] > midVal) {
+                    --y;
+                }
+                if (x <= y) {
+                    swap(arr[x], arr[y]);
+                    x++;
+                    y--;
+                }
+            } while (x <= y);
+            selectPivotOptimizeQuickSort(arr, x, right);
+            right = y;
+        }
+    }
 
+    public static int findMidValue(int a, int b, int c) {
+        if (a > b) {
+            swap(a, b);
+        }
+        if (a > c) {
+            swap(a, c);
+        }
+        if (b > c) {
+            swap(b, c);
+        }
+        return b;
+    }
+
+    /**
+     * 值交换
+     *
+     * @param a
+     * @param b
+     */
+    public static void swap(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
     }
 
     /**
